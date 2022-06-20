@@ -1,0 +1,2 @@
+['remote "awsremote"']
+    url = s3://benhgm
