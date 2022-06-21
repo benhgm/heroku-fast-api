@@ -4,6 +4,7 @@ from main import app
 
 client = TestClient(app)
 
+
 def test_get_function():
     result = client.get("/")
     try:
@@ -13,9 +14,11 @@ def test_get_function():
         }
     except AssertionError as err:
         print("Error with GET function")
+        raise err
+
 
 def test_post_predict_above_50k():
-    result  = client.post("/predict", json={
+    result = client.post("/predict", json={
         "age": 52,
         "workclass": "Self-emp-not-inc",
         "fnlgt": 209642,
@@ -33,10 +36,11 @@ def test_post_predict_above_50k():
     })
 
     assert result.status_code == 200
-    assert result.json() == {"prediction": ">50k"}
+    assert result.json() == {"prediction": ">50K"}
+
 
 def test_post_predict_below_50k():
-    result  = client.post("/predict", json={
+    result = client.post("/predict", json={
         "age": 37,
         "workclass": "Private",
         "fnlgt": 284582,
@@ -54,5 +58,5 @@ def test_post_predict_below_50k():
     })
 
     assert result.status_code == 200
-    assert result.json() == {"prediction": "<=50k"}
+    assert result.json() == {"prediction": "<=50K"}
     
