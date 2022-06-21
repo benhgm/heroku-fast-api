@@ -96,7 +96,7 @@ async def predict(input: User):
 
     # Compiile input data
     input = np.array([[
-        "",
+        0,
         input.age,
         input.workclass,
         input.fnlgt,
