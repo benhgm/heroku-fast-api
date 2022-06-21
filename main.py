@@ -114,6 +114,7 @@ async def predict(input: User):
 
     # Convert to pandas dataframe
     df = pd.DataFrame(data=input, columns=[
+        "",
         "age",
         "workclass",
         "fnlgt",
