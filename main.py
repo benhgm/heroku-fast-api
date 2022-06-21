@@ -121,12 +121,12 @@ async def predict(input: User):
         "hours_per_week",
         "workclass",
         "education",
-        "marital_status",
+        "marital-status",
         "occupation",
         "relationship",
         "race",
         "sex",
-        "native_country"
+        "native-country"
     ])
 
     X, _, _, _ = process_data(
