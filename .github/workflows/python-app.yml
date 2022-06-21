@@ -37,7 +37,7 @@ jobs:
     - name: Configure DVC
       uses: iterative/setup-dvc@v1
     - name: Pull DVC data
-      run: dvc pull -R
+      run: dvc pull -r awsremote
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
