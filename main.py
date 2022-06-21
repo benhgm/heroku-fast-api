@@ -14,19 +14,16 @@ from src.utils import inference, process_data
 
 class User(BaseModel):
     age: int
-    fnlgt: int
-    education_num: int
-    capital_gain: int
-    capital_loss: int
-    hours_per_week: int
     workclass: Literal[
         'State-gov', 'Self-emp-not-inc', 'Private', 'Federal-gov', 'Local-gov', 'Self-emp-inc', 'Without-pay'
     ]
+    fnlgt: int
     education: Literal[
         'Bachelors', 'HS-grad', '11th', 'Masters', '9th', 'Some-college', 'Assoc-acdm',
         '7th-8th', 'Doctorate', 'Assoc-voc', 'Prof-school', '5th-6th', '10th'
         'Preschool', '12th', '1st-4th'
     ]
+    education_num: int
     marital_status: Literal[
         'Never-married', 'Married-civ-spouse', 'Divorced', 'Married-spouse-absent',
         'Separated', 'Married-AF-spouse', 'Widowed'
@@ -46,6 +43,9 @@ class User(BaseModel):
     sex: Literal[
         'Male', 'Female'
     ]
+    capital_gain: int
+    capital_loss: int
+    hours_per_week: int
     native_country: Literal[
         'United-States', 'Cuba', 'Jamaica', 'India', 'Mexico', 'Puerto-Rico',
         'Honduras', 'England', 'Canada', 'Germany', 'Iran', 'Philippines', 'Poland',
@@ -55,6 +55,7 @@ class User(BaseModel):
         'Outlying-US(Guam-USVI-etc)', 'Scotland', 'Trinadad&Tobago', 'Greece',
         'Nicaragua', 'Vietnam', 'Hong', 'Ireland', 'Hungary', 'Holand-Netherlands'
     ]
+
 
 # Set up DVC in Heroku
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
@@ -96,18 +97,18 @@ async def predict(input: User):
     # Compiile input data
     input = np.array([[
         input.age,
-        input.fnlgt,
-        input.education_num,
-        input.capital_gain,
-        input.capital_loss,
-        input.hours_per_week,
         input.workclass,
+        input.fnlgt,
         input.education,
+        input.education_num,
         input.marital_status,
         input.occupation,
         input.relationship,
         input.race,
         input.sex,
+        input.capital_gain,
+        input.capital_loss,
+        input.hours_per_week, 
         input.native_country
     ]])
 
