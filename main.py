@@ -96,6 +96,7 @@ async def predict(input: User):
 
     # Compiile input data
     input = np.array([[
+        "",
         input.age,
         input.workclass,
         input.fnlgt,
@@ -114,7 +115,7 @@ async def predict(input: User):
 
     # Convert to pandas dataframe
     df = pd.DataFrame(data=input, columns=[
-        "",
+        ""
         "age",
         "workclass",
         "fnlgt",
