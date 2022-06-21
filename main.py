@@ -114,27 +114,25 @@ async def predict(input: User):
     # Convert to pandas dataframe
     df = pd.DataFrame(data=input, columns=[
         "age",
-        "fnlgt",
-        "education_num",
-        "capital_gain",
-        "capital_loss",
-        "hours_per_week",
         "workclass",
+        "fnlgt",
         "education",
+        "education-num",
         "marital-status",
         "occupation",
         "relationship",
         "race",
-        "sex",
+        "capital-gain",
+        "capital-loss",
+        "hours-per-week",
         "native-country"
     ])
 
     X, _, _, _ = process_data(
         df,
         categorical_features=cat_features,
-        label="salary",
         encoder=encoder,
-        lb=lb,
+        lb=None,
         training=False
     )
 
