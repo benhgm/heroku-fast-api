@@ -108,7 +108,7 @@ async def predict(input: User):
         input.sex,
         input.capital_gain,
         input.capital_loss,
-        input.hours_per_week, 
+        input.hours_per_week,
         input.native_country
     ]])
 
@@ -134,7 +134,7 @@ async def predict(input: User):
         df,
         categorical_features=cat_features,
         encoder=encoder,
-        lb=None,
+        lb=lb,
         training=False
     )
 
