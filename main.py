@@ -122,6 +122,7 @@ async def predict(input: User):
         "occupation",
         "relationship",
         "race",
+        "sex",
         "capital-gain",
         "capital-loss",
         "hours-per-week",
