@@ -13,7 +13,7 @@ from src.utils import inference, process_data
 
 
 class User(BaseModel):
-    age: int = Field(example=30)
+    age: int = Field(example=35)
     workclass: Literal[
         'State-gov', 'Self-emp-not-inc', 'Private', 'Federal-gov', 'Local-gov', 'Self-emp-inc', 'Without-pay'
     ] = Field(example='State-gov')
