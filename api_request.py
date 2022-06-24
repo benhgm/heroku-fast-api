@@ -1,5 +1,7 @@
 import requests
+import logging
 
+logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
 data = {
     "age": 29,
@@ -18,7 +20,11 @@ data = {
     "native_country": "United-States"
 }
 
-app_url = "https://.herokuapp.com/predict"
+app_url = "https://predict-yo-income.herokuapp.com/predict"
 
 result = requests.post(app_url, json=data)
 assert result.status_code == 200
+
+logging.info("Testing Heroku app")
+logging.info(f"Status code: {result.status_code}")
+logging.info(f"Response body: {result.json()}")
